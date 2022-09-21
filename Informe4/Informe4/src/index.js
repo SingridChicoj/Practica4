@@ -4,6 +4,7 @@ var mysql = require("mysql");
 var app = express();
 var connection = require("./database")
 
+
 app.use(bp.json())
 app.use(bp.urlencoded({extended: true}))
 
@@ -19,35 +20,102 @@ function getRandomIntInclusive(min, max) {
   // Ahora, tanto el valor mínimo como el máximo están incluidos en el resultado.
   
 
+  app.get("/", function(req, res){
 
-app.get("/", function(req, res){
+    res.send({"Mensaje": "Todo bien"})
+
+  })
+
+//endpoint login
+app.get("/login/:user/:password", function(req, res){
     //let = "DELETE FROM cursosaprobados WHERE (`idcursosaprobados` = "+3+")"
-
-
-
-
-
-
-    //imprimir todos los datos de tabla cursos
-    connection.query("SELECT * from cursos", function(error, results, fields){
-        if(error) throw error;
-
-        results.forEach(result => {
-            console.log(result)
-        });
-
-    });
 
     
 
-    connection.query("SELECT * from cursosaprobados", function(error, results, fields){
+    var usuario = req.params.user
+    var password = req.params.password
 
+    //bandera = verificar(usuario, password)
+
+    //console.log(bandera)
+
+    connection.query("SELECT * from credenciales", function(error, results, fields){
         if(error) throw error;
 
-        console.log(results)
-    })
+        let lista = []
 
-    res.send("listo")
+
+        function logArray(element, index, array){
+
+            lista.push(element)
+
+            if(usuario == element.registro && password == element.contrasena){
+                return true
+            }
+
+
+        }
+        results.forEach(logArray)
+
+
+        var bandera = false
+        
+
+        for(var i = 0; i<=lista.length-1; i++){
+            console.log(lista[i].carnet)
+
+            if(lista[i].contrasena == password && lista[i].carnet == usuario){
+                bandera = true
+            }
+            
+
+        }
+
+        //results.forEach(result => {
+//
+        //    if(result.carnet == parseInt(usuario) && result.contrasena == parseInt(password)) {
+        //        console.log("correcto")
+        //        res.send({"Mensaje": "Todo bien"})
+        //        return true;
+//
+        //    }
+//
+        //    return false;
+        //});
+
+        if(bandera){
+            console.log("entra al if")
+            res.send({"Mensaje": "Todo bien"})
+        } else {
+            res.send({"Mensaje": "Usuario incorrecto"})
+        }
+
+    })
+    
+
+
+    //imprimir todos los datos de tabla cursos
+    //connection.query("SELECT * from cursos", function(error, results, fields){
+    //    if(error) throw error;
+//
+    //    results.forEach(result => {
+    //        console.log(result)
+    //    });
+//
+    //});
+
+    
+
+    //connection.query("SELECT * from cursosaprobados", function(error, results, fields){
+//
+    //    if(error) throw error;
+//
+    //    console.log(results)
+    //})
+
+
+
+    
 
 });
 
@@ -79,12 +147,6 @@ app.post("/registrar", function(req, res){
 
 
     })
-
-    //console.log(req.body.nombre)
-
-    //Asigno el usuario
-
-    
 
     //crear el objeto usuario
     let usuarionuevo = "INSERT INTO credenciales (carnet, 1apellido, 2apellido, 1nombre, 2nombre, contrasena, email, idcursosaprobados) VALUES("+req.body.registro+", '"+req.body.apellido+"', NULL, '"+req.body.nombre+"', NULL, '"+req.body.contraseña+"', '"+req.body.correo+"', "+id_curso_aprobado+")"
