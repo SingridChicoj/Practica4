@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `practicasiniciales-p4`.`cursos` (
   `nombre` VARCHAR(45) NOT NULL,
   `creditos_necesarios` INT NOT NULL,
   PRIMARY KEY (`idcursos`),
-  UNIQUE INDEX `idcursos_UNIQUE` (`idcursos` ASC) VISIBLE)
+  UNIQUE INDEX `idcursos_UNIQUE` (`idcursos` ASC) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `practicasiniciales-p4`.`cursosaprobados` (
   `idcurso` INT NOT NULL,
   `punteo` INT NOT NULL,
   PRIMARY KEY (`idcursosaprobados`),
-  INDEX `idcursos_idx` (`idcurso` ASC) VISIBLE,
+  INDEX `idcursos_idx` (`idcurso` ASC) ,
   CONSTRAINT `idcursos`
     FOREIGN KEY (`idcurso`)
     REFERENCES `practicasiniciales-p4`.`cursos` (`idcursos`)
@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `practicasiniciales-p4`.`credenciales` (
   `email` VARCHAR(45) NOT NULL,
   `idcursosaprobados` INT NOT NULL,
   PRIMARY KEY (`carnet`),
-  UNIQUE INDEX `carnet_UNIQUE` (`carnet` ASC) VISIBLE,
-  INDEX `idcursosaprobados_idx` (`idcursosaprobados` ASC) VISIBLE,
+  UNIQUE INDEX `carnet_UNIQUE` (`carnet` ASC) ,
+  INDEX `idcursosaprobados_idx` (`idcursosaprobados` ASC) ,
   CONSTRAINT `idcursosaprobados`
     FOREIGN KEY (`idcursosaprobados`)
     REFERENCES `practicasiniciales-p4`.`cursosaprobados` (`idcursosaprobados`)
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `practicasiniciales-p4`.`publicaciones` (
   `mensaje` VARCHAR(500) NOT NULL,
   `fecha` DATE NOT NULL,
   PRIMARY KEY (`idpublicaciones`),
-  INDEX `carne_idx` (`carne` ASC) VISIBLE,
+  INDEX `carne_idx` (`carne` ASC),
   CONSTRAINT `carne`
     FOREIGN KEY (`carne`)
     REFERENCES `practicasiniciales-p4`.`credenciales` (`carnet`)
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `practicasiniciales-p4`.`comentariospublicacion` (
   `idpublicacion` INT NOT NULL,
   `comentario` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`idcomentario`),
-  INDEX `idpublicacion_idx` (`idpublicacion` ASC) VISIBLE,
+  INDEX `idpublicacion_idx` (`idpublicacion` ASC),
   CONSTRAINT `idpublicacion`
     FOREIGN KEY (`idpublicacion`)
     REFERENCES `practicasiniciales-p4`.`publicaciones` (`idpublicaciones`)
