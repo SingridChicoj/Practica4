@@ -5,11 +5,23 @@
 }
 
 body{
+    height: 100%;
     font-family: arial;
     background-image: url('panel.jpg');
+    background-size: cover;
 }
 
+.logo{
+    position: absolute;
+    left: 40.4%;
+    top: 60%;
+}
+
+.logo img{
+    width: 70%;
+}
 .form-login {
+    margin: center;
     width: 400px;
     height: 340px;
     background: #4e4d4d;
