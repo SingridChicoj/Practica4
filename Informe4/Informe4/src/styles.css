@@ -1,12 +1,1 @@
-*{
-	padding: 0;
-	margin: 0;
-	text-decoration: none;
-	list-style: none;
-	box-sizing: border-box;
-	font-family:arial;
-}
-div{
-	margin-top: 1%;
-	margin-left: 1%;
-}
+/* Puede agregar estilos globales a este archivo y también importar otros archivos de estilo */
