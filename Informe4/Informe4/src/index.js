@@ -12,6 +12,8 @@ var id_curso_aprobado = 1
 
 
 
+
+
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -20,25 +22,25 @@ function getRandomIntInclusive(min, max) {
   // Ahora, tanto el valor mínimo como el máximo están incluidos en el resultado.
   
 
-  app.get("/", function(req, res){
+//pagina principal
+app.get("/api/", function(req, res){
 
-    res.send({"Mensaje": "Todo bien"})
+  res.send({"Mensaje": "Todo bien"})
 
-  })
+})
 
 //endpoint login
 app.get("/login/:user/:password", function(req, res){
     //let = "DELETE FROM cursosaprobados WHERE (`idcursosaprobados` = "+3+")"
 
     
-
+    //alamaceno usuario y contraseña en variables
     var usuario = req.params.user
     var password = req.params.password
 
-    //bandera = verificar(usuario, password)
+    
 
-    //console.log(bandera)
-
+    //Inserta los datos de la tabla credenciales en una lista
     connection.query("SELECT * from credenciales", function(error, results, fields){
         if(error) throw error;
 
@@ -46,12 +48,9 @@ app.get("/login/:user/:password", function(req, res){
 
 
         function logArray(element, index, array){
+            console.log(elem.contrasena)
 
             lista.push(element)
-
-            if(usuario == element.registro && password == element.contrasena){
-                return true
-            }
 
 
         }
@@ -60,7 +59,7 @@ app.get("/login/:user/:password", function(req, res){
 
         var bandera = false
         
-
+        //recorre la lista hasta encontrar
         for(var i = 0; i<=lista.length-1; i++){
             console.log(lista[i].carnet)
 
@@ -137,26 +136,26 @@ app.post("/registrar", function(req, res){
         curso = 962
     };
 
-    let cursoaprobado = "INSERT INTO cursosaprobados (idcursosaprobados, idcurso, punteo) VALUES("+id_curso_aprobado+", "+curso+", "+0+")"
-
-    
-
-    connection.query(cursoaprobado, function(err, result, filed){
-        if(err) throw err
-        console.log(result);
-
-
-    })
+    //let cursoaprobado = "INSERT INTO cursosaprobados (idcursosaprobados, idcurso, punteo) VALUES("+id_curso_aprobado+", "+curso+", "+0+")"
+//
+    //
+//
+    //connection.query(cursoaprobado, function(err, result, filed){
+    //    if(err) throw err
+    //    console.log(result);
+//
+//
+    //})
 
     //crear el objeto usuario
-    let usuarionuevo = "INSERT INTO credenciales (carnet, 1apellido, 2apellido, 1nombre, 2nombre, contrasena, email, idcursosaprobados) VALUES("+req.body.registro+", '"+req.body.apellido+"', NULL, '"+req.body.nombre+"', NULL, '"+req.body.contraseña+"', '"+req.body.correo+"', "+id_curso_aprobado+")"
+    let usuarionuevo = "INSERT INTO credenciales (carnet, 1apellido, 2apellido, 1nombre, 2nombre, contrasena, email, idcursosaprobados) VALUES("+req.body.registro+", '"+req.body.apellido+"', NULL, '"+req.body.nombre+"', NULL, '"+req.body.contraseña+"', '"+req.body.correo+"', NULL)"
 
     
 
     //luego lo inserta
     connection.query(usuarionuevo, function(err, result, filed){
         if(err) throw err
-        console.log(result);
+        //console.log(result);
 
     })
 
@@ -179,6 +178,8 @@ app.post("/registrar", function(req, res){
     res.send({mensaje: "Todo bien"})
 
 });
+
+
 
 app.put("/actualizar/:registro/:curso/:punteo", function(req, res){
     res.json({mensaje: 'actualizando: ' + req.params.registro })
@@ -287,6 +288,9 @@ app.listen(3000, function(){
     })
 
 });
+
+
+
 
 
 

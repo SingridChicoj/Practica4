@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "main": "src/index.js",
   "scripts": {
+    "dev": "nodemon/index.js",
     "ng": "ng",
-    "start": "nodemon index.js",
+    "start": "ng serve --proxy-conf proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-
+//importo login.service.ts donde esta la funcion
 import { LoginService } from "../login.service";
 
 @Component({
@@ -10,17 +10,27 @@ import { LoginService } from "../login.service";
 })
 
 
-//parte logica
+//parte logica del componente login
 
 export class LoginComponent implements OnInit {
 
   constructor(private ServicioLogin:LoginService) { }
 
   ngOnInit(): void {
+    this.inicio_sesion()
+
+  }
+
+  //funciones
+  inicio_sesion(){
     this.ServicioLogin.Consultar().subscribe(datos=>{
       console.log(datos)
-    })
+      console.log("Hola")
+    },
+    
+    datos => console.log("Error")
 
+    )
   }
 
 }

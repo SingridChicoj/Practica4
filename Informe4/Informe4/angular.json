@@ -62,6 +62,12 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "Informe4:build",
+            "proxyConfig": "proxy.conf.json"
+
+          },
+
           "configurations": {
             "production": {
               "browserTarget": "Informe4:build:production"

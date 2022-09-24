@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import {HttpClient} from "@angular/common/http"
-import { environment } from 'src/environments/environment';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,9 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
+  //ruta del apirest (Nodejs)
+  url="/api"
+
   constructor(private servicio:HttpClient) { }
 
+  //mando esta funcion al componente login
   Consultar():Observable<any>{
-    return this.servicio.get(environment.servidor)
+    return this.servicio.get<any>(this.url)
   }
 }
