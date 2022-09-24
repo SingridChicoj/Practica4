@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html{
@@ -9,7 +10,7 @@ html{
 }
 
 body{
-    height: 200vh;
+    height: 100vh;
     font-family: arial;
 }
 
@@ -22,13 +23,17 @@ body{
 .logo img{
     width: 70%;
 }
+
+
 .form-login {
     margin: center;
     width: 400px;
     height: 340px;
-    background: #4e4d4d;
+    position: absolute;
     margin: auto;
-    margin-top: 180px;
+    margin-top: 280px;
+    margin-left: 725px;
+    background: #4e4d4d;
     box-shadow: 7px 13px 37px #000;
     padding: 20px 30px;
     border-top: 4px solid #017bab;
