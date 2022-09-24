@@ -1,14 +1,16 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html{
+    background-image: url('panel.jpg');
+    background-size: cover;
 }
 
 body{
-    height: 200%;
+    height: 200vh;
     font-family: arial;
-    background-image: url('panel.jpg');
-    background-size: cover;
 }
 
 .logo{
