@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       console.log(datos)
     },
     
-    datos => console.log("Error")
+    datos => console.log(datos)
 
     )
 
