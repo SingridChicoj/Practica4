@@ -26,7 +26,7 @@ function getRandomIntInclusive(min, max) {
 app.get("/api/", function(req, res){
 
     
-    res.sendFile("Informe4\Informe4\src\app\home\home.component.html")
+    res.sendFile(__dirname + "./app/home/home.component.html")
     //res.send({"Mensaje": "Todo bien"})
 
 })
