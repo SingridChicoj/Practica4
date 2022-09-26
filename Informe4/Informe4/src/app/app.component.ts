@@ -5,11 +5,6 @@ import {LoginComponent } from "./login/login.component"
 
 
 
-
-const routes: Routes = [
-  {path: "/", component:LoginComponent}
-]
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

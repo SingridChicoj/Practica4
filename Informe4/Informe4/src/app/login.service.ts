@@ -18,4 +18,5 @@ export class LoginService {
   Consultar():Observable<any>{
     return this.servicio.get<any>(this.url)
   }
+  
 }
