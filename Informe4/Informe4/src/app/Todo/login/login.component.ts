@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { LoginI } from 'src/app/Modelos/Login';
 import {PrincipalService}from '../../Services/principal.service';
 import { Router, RouterEvent } from '@angular/router';
 import { TestI } from 'src/app/Modelos/Test';
+
 
 
 //importo login.service.ts donde esta la funcion
@@ -36,3 +36,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
