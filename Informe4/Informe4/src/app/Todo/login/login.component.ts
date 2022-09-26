@@ -14,8 +14,15 @@ import { LoginService } from "../login.service";
 
 export class LoginComponent implements OnInit {
 
-  constructor(private ServicioLogin:LoginService) { }
+  Registro_Academico: string="";
+  password: string="";
 
+  usuariolog: any={
+    Registro_Academico: "",
+    password: ""
+  }
+
+  constructor(private ServicioLogin:LoginService) { }
   ngOnInit(): void {
     this.inicio_sesion()
 
