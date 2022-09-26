@@ -11,7 +11,7 @@ app.use(bp.urlencoded({extended: true}))
 var id_curso_aprobado = 1
 
 
-
+app.use(express.static(path.join(__dirname, "src\app\home")))
 
 
 function getRandomIntInclusive(min, max) {
@@ -26,9 +26,10 @@ function getRandomIntInclusive(min, max) {
 app.get("/api/", function(req, res){
 
     
-    res.sendFile(__dirname + "/home.component.html")
+    res.sendFile(__dirname + "\app\home\home.component.html")
 
     //res.send({"Mensaje": "Todo bien"})
+    res.send(__dirname)
 
 })
 
