@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //importacion de componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './Todo/login/login.component';
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -14,16 +14,16 @@ import { AppRoutingModule } from "./app-routing.module"
 //para rutas
 
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './Todo/home/home.component';
 
-import { RegistroComponent } from './registro/registro.component';
-import { PublicacionesComponent } from './publicaciones/publicaciones.component';
-import { PublicarComponent } from './publicar/publicar.component';
-import { ComentarComponent } from './comentar/comentar.component';
-import { ComentariosComponent } from './comentarios/comentarios.component';
-import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
-import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegistroComponent } from './Todo/registro/registro.component';
+import { PublicacionesComponent } from './Todo/publicaciones/publicaciones.component';
+import { PublicarComponent } from './Todo/publicar/publicar.component';
+import { ComentarComponent } from './Todo/comentar/comentar.component';
+import { ComentariosComponent } from './Todo/comentarios/comentarios.component';
+import { InfoUsuarioComponent } from './Todo/info-usuario/info-usuario.component';
+import { EditarUsuarioComponent } from './Todo/editar-usuario/editar-usuario.component';
+import { DashboardComponent } from './Todo/dashboard/dashboard.component';
 
 
 @NgModule({

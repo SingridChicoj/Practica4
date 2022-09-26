@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HomeService } from "../home.service"
+import { PrincipalService } from "../../Services/principal.service"
 
 @Component({
   selector: 'app-home',
@@ -9,29 +9,9 @@ import { HomeService } from "../home.service"
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ServicioHome:HomeService) { }
+  constructor(private ServicioHome:PrincipalService) { }
 
   ngOnInit(): void {
-
-    this.home()
-
-
-
-
-  }
-
-  home(){
-    this.ServicioHome.home().subscribe(datos=>{
-      console.log(datos)
-    },
-    
-    datos => console.log(datos)
-
-    )
-
-    
-    
-
   }
 
 

@@ -11,8 +11,6 @@ app.use(bp.urlencoded({extended: true}))
 var id_curso_aprobado = 1
 
 
-app.use(express.static(path.join(__dirname, "src\app")))
-
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
