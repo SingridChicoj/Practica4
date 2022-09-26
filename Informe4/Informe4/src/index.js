@@ -29,7 +29,7 @@ app.get("/api/", function(req, res){
     res.sendFile(__dirname + "/login/login.component.html")
 
     //res.send({"Mensaje": "Todo bien"})
-    res.send(__dirname)
+    
 
 })
 
