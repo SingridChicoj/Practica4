@@ -11,7 +11,7 @@ app.use(bp.urlencoded({extended: true}))
 var id_curso_aprobado = 1
 
 
-app.use(express.static(path.join(__dirname, "src\app\home")))
+//app.use(express.static(path.join(__dirname, "src\app\home")))
 
 
 function getRandomIntInclusive(min, max) {
