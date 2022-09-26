@@ -18,8 +18,9 @@ export class PrincipalService {
 
   constructor(private servicio:HttpClient) { }
 
-
-  home():Observable<any>{
-    return this.servicio.get<any>(this.url)
+  login(form: any){
+    let ruta = this.url + ""
+    return this.servicio.post<any>(ruta, form)
   }
+  
 }
